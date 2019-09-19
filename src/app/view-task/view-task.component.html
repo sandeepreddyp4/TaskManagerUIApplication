@@ -1,0 +1,75 @@
+<div class="container">
+  <header>
+    <h3> View Task </h3>
+  </header>
+  <main>
+    <section aria-label="task search form">
+      <form class="my-4">
+          <div class="form-group row">
+            <label for="task" class="col-sm-2 col-form-label">Task:</label>
+            <div class="col-sm-4 px-md-0">
+              <input type="text" class="form-control" id="task" [(ngModel)]='taskSearch' name="task">
+            </div>
+            <label for="parentTask" class="col-sm-2 col-form-label">Parent Task:</label>
+            <div class="col-sm-4 px-md-0">
+              <input type="text" id="parentTask" class="form-control" [(ngModel)]='parentTaskSearch' name="parentTask">
+            </div>
+          </div>
+    
+          <div class="form-group row">
+            <label for="priorityFrom" class="col-sm-2 col-form-label">Priority From:</label>
+            <div class="col-sm-1 px-md-0">
+              <input type="text" class="form-control" id="priorityFrom" [(ngModel)]='priorityFromSearch' name="priorityFrom">
+            </div>
+            <label for="priorityTo" class="col-sm-2 col-form-label">Priority To:</label>
+            <div class="col-sm-1 px-md-0">
+              <input type="text" id="priorityTo" class="form-control" [(ngModel)]='priorityToSearch' name="priorityTo">
+            </div>
+    
+            <label for="startDate" class="col-sm-2 col-form-label">Start Date:</label>
+            <div class="col-sm-1 px-md-0">
+              <input type="text" class="form-control" id="startDate" [(ngModel)]='startDateSearch' name="startDate">
+            </div>
+            <label for="endDate" class="col-sm-2 col-form-label">End Date:</label>
+            <div class="col-sm-1 px-md-0">
+              <input type="text" id="endDate" class="form-control" [(ngModel)]='endDateSearch' name="endDate">
+            </div>
+          </div>
+      </form>
+    </section>
+    <section aria-label="task search result">
+      <div class="border-top border-secondary">
+        <ng-container *ngFor="let task of filteredTasks ">
+          <div class="row py-3 border-bottom border-secondary">
+            <div class="col-md-3">
+              <div><span>Task</span></div>
+              <div class="p-4 bg-secondary text-center"><span>{{task.task}}</span></div>
+            </div>
+            <div class="col-md-3">
+              <div><span>Parent Task</span></div>
+              <div class="p-4 bg-secondary text-center"><span>{{task.parentTask}}</span></div>
+            </div>
+            <div class="col-md-1">
+              <div><span>Priority</span> </div>
+              <div class="text-center"><span>{{task.priority}}</span></div>
+            </div>
+            <div class="col-md-1">
+              <div><span>Start</span> </div>
+              <div class="text-center"><span>{{task.startDate}}</span></div>
+            </div>
+            <div class="col-md-1">
+              <div><span>End</span> </div>
+              <div class="text-center"><span>{{task.endDate}}</span></div>
+            </div>
+            <div class="col-md-3">
+              <div class="mt-4">
+                <button class="btn btn-link mr-2" type="button" [routerLink]="['/update-task',{id:task.taskId}]">Edit</button>
+                <button type="button" class="btn btn-link">End Task</button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </section>
+  </main>
+</div>

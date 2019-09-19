@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Shrikhand|Fredoka+One|Bree+Serif|Permanent+Marker');
+
+h3 {
+    font-family: 'Fredoka One', cursive;
+}
+
+h1 {
+    font-family: 'Shrikhand', cursive;
+}
+
+p, span, body{
+    font-family: 'Bree Serif', serif;
+}
+
+.btn {
+    font-family: 'Permanent Marker', cursive;
+    &.disabled,
+    &:disabled {
+        background-color: #6c757d;
+    }
+}
+
+.form-control {
+    border-width: 0rem;
+    background-color: beige;
+}
+
+.dotted {
+    border-top-style: dotted;
+    border-radius: 0rem;
+}
+
+.custom-range {
+    &::before {
+        content: "0";
+        margin-left: -1rem;
+        color: black;
+    }
+    &::after {
+        content: "30";
+        margin-right: -1.5rem;
+        margin-left: 0.5rem;
+        color: black;
+    }
+}
+

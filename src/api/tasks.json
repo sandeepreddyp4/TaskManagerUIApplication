@@ -1,0 +1,20 @@
+[
+    {
+      "task": "Task One",
+      "parentTask": "No Parent task",
+      "priority": "1",
+      "startDate": "1/1/2019",
+      "endDate": "2/1/2019",
+      "taskId": 1,
+      "parentTaskId": null
+    },
+    {
+      "task": "Task Two",
+      "parentTask": "Task One",
+      "priority": "2",
+      "startDate": "2/1/2019",
+      "endDate": "3/2/2019",
+      "taskId": 2,
+      "parentTaskId": 1
+    }
+]
