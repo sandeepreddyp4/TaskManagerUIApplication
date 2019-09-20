@@ -8,18 +8,14 @@ describe('AddTaskComponent', () => {
   let component: AddTaskComponent;
   let fixture: ComponentFixture<AddTaskComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AddTaskComponent ],
-      imports: [FormsModule, RouterTestingModule, HttpClientModule]
-    })
-    .compileComponents();
-  }));
-
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddTaskComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    mockService = jasmine.createSpyObj("TaskService", ["addTask"]);
+    (mockService.addTask as jasmine.Spy).and.returnValue(undefined);
+
+    mockRouter = jasmine.createSpyObj("Router", ["navigate"]);
+    (mockRouter.navigate as jasmine.Spy).and.returnValue(undefined);
+
+    component = new AddTaskComponent(mockRouter, mockService);
   });
 
   it('should create', () => {
