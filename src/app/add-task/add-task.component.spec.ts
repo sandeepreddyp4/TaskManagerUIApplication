@@ -22,9 +22,15 @@ describe('AddTaskComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should addTask', () => {
-    component.addTask();
-    expect(component).toBeTruthy();
-  });
+   describe("addTask", function () {
+    it("should call addTask and router's navigate method", function () {
+      // Act
+      component.addTask();
+
+      // Assert
+      expect(mockService.addTask).toHaveBeenCalled();
+      expect(mockRouter.navigate).toHaveBeenCalled();
+    });
+  })
   
 });
